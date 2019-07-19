@@ -1,0 +1,19 @@
+.todo {
+  display: flex;
+  justify-content: space-between;
+  background-color: $grey;
+  padding: 1rem;
+  &__task {
+    display: flex;
+  }
+}
+
+.new-todo {
+  &__form {
+    display: flex;
+  }
+
+  &__task {
+    flex: 1;   
+  }
+}

@@ -1,1 +1,1 @@
-.container{width:400px;margin:0 auto}.todo{display:flex;justify-content:space-around}.todo__task{display:flex}
+.container{width:400px;margin:0 auto}.todo{display:flex;justify-content:space-between;background-color:#f7f7f7;padding:1rem}.todo__task{display:flex}.new-todo__form{display:flex}.new-todo__task{flex:1}
