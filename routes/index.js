@@ -4,11 +4,21 @@ const Session = require('../models/Session');
 
 /* GET home page. */
 router.get('/', Session.configSession, (req, res, next) => {  
-  const session = req.session;
-  const todos = session.todos;
+  const { session } = req;
+  const { todos } = session;
   res.render('index', { title: 'Express', todos });
 });
 
+router.post('/new-todo', Session.configSession, (req, res, next) => {
+  const { session } = req;
+  const { todos } = session;
+  const { task } = req.body;
+
+  if (task) {
+    todos.push({ task, done: false });
+  }
+  res.redirect('/');
+});
 
 
 

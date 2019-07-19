@@ -2,6 +2,7 @@
 <p>Welcome to {{title}}</p>
 
 {{#each todos}}
-  {{ task }}
-  {{ done }}
+  {{> todo this}}
 {{/each}}
+
+{{> form }}
