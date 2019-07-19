@@ -3,7 +3,6 @@ var router = express.Router();
 const Session = require('../models/Session');
 const uuidv4 = require('uuid/v4');
 
-/* GET home page. */
 router.get('/', Session.configSession, (req, res, next) => {  
   const { session } = req;
   const { todos } = session;
@@ -26,14 +25,11 @@ router.post('/update-todo', (req, res, next) => {
   const { session } = req;
   const { todos } = session;
   const { id, done } = req.body;
-  if (id) {
-    const foundTodo = todos.find(todo => todo.id === id);
-    if (foundTodo) {
-      console.log(!!done);
-      foundTodo.done = !!done;
-    }
-    res.redirect('/');
+  const foundTodo = todos.find(todo => todo.id === id);
+  if (foundTodo) {
+    foundTodo.done = !!done;
   }
+  res.redirect('/');
 });
 
 module.exports = router;
