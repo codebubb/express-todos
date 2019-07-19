@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Session = require('../models/Session');
+const uuidv4 = require('uuid/v4');
 
 /* GET home page. */
 router.get('/', Session.configSession, (req, res, next) => {  
@@ -15,11 +16,24 @@ router.post('/new-todo', Session.configSession, (req, res, next) => {
   const { task } = req.body;
 
   if (task) {
-    todos.push({ task, done: false });
+    const id = uuidv4();
+    todos.push({ id, task, done: false });
   }
   res.redirect('/');
 });
 
-
+router.post('/update-todo', (req, res, next) => {
+  const { session } = req;
+  const { todos } = session;
+  const { id, done } = req.body;
+  if (id) {
+    const foundTodo = todos.find(todo => todo.id === id);
+    if (foundTodo) {
+      console.log(!!done);
+      foundTodo.done = !!done;
+    }
+    res.redirect('/');
+  }
+});
 
 module.exports = router;

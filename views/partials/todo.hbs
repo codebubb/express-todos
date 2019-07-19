@@ -1,4 +1,8 @@
 <div class="todo">
   {{ task }}
-  <input type="checkbox" {{#done}} checked {{/done}}/>
+  <form action="/update-todo" method="POST">
+      <input type="checkbox" name="done" {{#done}} checked {{/done}}/>
+      <input type="hidden" name="id" value="{{id}}">
+      <button>Save</button>
+  </form>
 </div>
