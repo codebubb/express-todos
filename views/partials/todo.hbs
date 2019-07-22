@@ -3,11 +3,12 @@
     {{ task }}
   </div>
   <form class="todo__form" action="/update-todo" method="POST">
-    <input class="todo__done" type="checkbox" name="done" {{#done}} checked="checked" {{/done}}/>
+    <input class="todo__done_action" type="checkbox" name="done" {{#done}} checked="checked" {{/done}}/>
     <input type="hidden" name="id" value="{{id}}" />
     <button class="todo__save">Save</button>
   </form>
   <form class="todo__form" action="/delete-todo" method="POST">
+    <span class="todo__delete_action">x</span>
     <input type="hidden" name="id" value="{{id}}" />
     <button class="todo__delete">Delete</button>
   </form>

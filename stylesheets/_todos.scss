@@ -3,8 +3,19 @@
   justify-content: space-between;
   background-color: $grey;
   padding: 1rem;
+  &__task {
+    flex: 1;
+  }
   &--done {
     text-decoration: line-through;
+  }
+
+  &__form {
+    display: flex;
+    justify-content: flex-end;
+    .todo__delete_action {
+      cursor: pointer;
+    }
   }
 }
 
@@ -15,5 +26,13 @@
 
   &__task {
     flex: 1;   
+  }
+}
+
+.hide-update-controls {
+  .todo__save, 
+  .todo__delete {
+    display: none;
+    flex: 0;
   }
 }
