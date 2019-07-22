@@ -32,4 +32,17 @@ router.post('/update-todo', (req, res, next) => {
   res.redirect('/');
 });
 
+router.post('/delete-todo', (req, res, next) => {
+  const { session } = req;
+  let { todos } = session;
+  const { id } = req.body;
+  const foundTodo = todos.findIndex(todo => todo.id === id);
+  if (foundTodo > -1) {
+    todos.splice(foundTodo, 1);
+  }
+  res.redirect('/');
+});
+
+
+
 module.exports = router;

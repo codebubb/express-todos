@@ -1,10 +1,14 @@
 <div class="todo">
-  <div class="todo__task">
+  <div class="todo__task {{#done}} todo--done {{/done}}">
     {{ task }}
   </div>
   <form class="todo__form" action="/update-todo" method="POST">
-      <input class="todo__done" type="checkbox" name="done" {{#done}} checked {{/done}}/>
-      <input type="hidden" name="id" value="{{id}}">
-      <button class="todo__save">Save</button>
+    <input class="todo__done" type="checkbox" name="done" {{#done}} checked="checked" {{/done}}/>
+    <input type="hidden" name="id" value="{{id}}" />
+    <button class="todo__save">Save</button>
+  </form>
+  <form class="todo__form" action="/delete-todo" method="POST">
+    <input type="hidden" name="id" value="{{id}}" />
+    <button class="todo__delete">Delete</button>
   </form>
 </div>
