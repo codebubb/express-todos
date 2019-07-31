@@ -22,6 +22,18 @@
 .new-todo {
   &__form {
     display: flex;
+    margin-top: 1rem;
+    input {
+      padding: 1rem;
+      flex: 3;
+    }
+
+    button {
+      background-color: $blue;
+      color: $white;
+      border: 0;
+      flex: 1;
+    }
   }
 
   &__task {
