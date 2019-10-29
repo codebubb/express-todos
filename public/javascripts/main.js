@@ -1,13 +1,14 @@
 class TodoApp {
-  
-
 
   constructor() {
     console.log('JS App started...');
 
-    this.done_action = 'todo__done_action';
-    this.delete_action = 'todo__delete_action';
-
+    this.doneAction = 'todo__done_action';
+    this.deleteAction = 'todo__delete_action';
+    this.APIEndpoints = {
+      create: '/new-todo',
+      update: '/update-todo',
+    };
     this.hideFormButtons();
     this.setupEventListeners();
   }
@@ -21,12 +22,20 @@ class TodoApp {
     document.addEventListener('click', (event) => {
       const { srcElement } = event;
       const { className } = srcElement;
-      const isTodoUpdate = className === this.done_action || className === this.delete_action;
+
+      switch (className) {
+        case this.doneAction: this.submitTodoForm()
+      }
+      if (className === this.doneAction || className === this.deleteAction;
 
       if (isTodoUpdate) {
-        srcElement.parentElement.submit();
+        this.submitTodoForm(srcElement.parentElement);
       }
     });
+  }
+
+  submitTodoForm(form) {
+    fetch()
   }
 }
 
